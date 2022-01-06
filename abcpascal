@@ -110,7 +110,7 @@ uploadbase(){
         cp /root/*.ovpn /etc/openvpn
 	cd "/etc/"
 	tar -czvf "openvpn.tar.gz" "openvpn" && clear
-	upload_link="$(curl -H "Max-Downloads: 100" -H "Max-Days: 50" -F filedata=@/etc/openvpn.tar.gz http://transfer.sh)" && clear
+	upload_link="$(curl -H "Max-Downloads: 100" -H "Max-Days: 50" -F filedata=@/etc/openvpn.tar.gz https://transfer.sh)" && clear
 	echo -e "${Red} $upload_link${Font_color_suffix} - ${Blue}Ссылка на скачивание Базы OpenVPN${Font_color_suffix}"
   echo -e "${Blue}База OpenVPN успешно выгружена!${Font_color_suffix}"
 	rm "openvpn.tar.gz"
@@ -496,7 +496,7 @@ restart_openvpn(){
 if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 	apt install at
 	clear
-	echo 'Добро пожаловать в установщик OVpro (Разработчики: Chieftain && xyl1gun4eg && VeroN)!'
+	echo 'Добро пожаловать в установщик OVpro (Разработчики: FuckingTC && Drag717)!'
 	# If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
 		ip=$(ip -4 addr | grep inet | grep -vE '127(\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\.[0-9]{1,3}){3}')
@@ -824,7 +824,7 @@ else
 	number_of_active=$(cat /etc/openvpn/server/openvpn-status.log | grep CLIENT_LIST | tail -n +2 | grep -c CLIENT_LIST)
 	clear
 	echo
-	echo  -e "${Morg}${Blue}FuckingTC [OVpro Control]${Font_color_suffix} "
+	echo  -e "${Morg}${Blue}Drag717(Xon) && FuckingTC [OVpro Control]${Font_color_suffix} "
 	echo
 echo -e "Приветствую, администратор сервера! Дата: ${Blue}$(date +"%d-%m-%Y")${Font_color_suffix}
 Всего ключей на сервере:" ${Blue}$number_of_clients${Font_color_suffix}
